@@ -1,0 +1,39 @@
+
+
+  .series-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--ink-line);
+    background: none;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    text-align: left;
+    cursor: pointer;
+    font-family: inherit;
+    text-decoration: none;
+  }
+
+
+
+  .community-list .series-row:last-child { border-bottom: none; }
+
+
+
+  .series-icon {
+    flex: none;
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #7089b3, #2e4468 65%, var(--ink-soft));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+
+  .series-row .community-card-body { display: flex; flex-direction: column; gap: 2px; }

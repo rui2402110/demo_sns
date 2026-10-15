@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>kakko. ｜ コミュニティ作成</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="common.css">
+<link rel="stylesheet" href="community-create.css">
+</head>
+<body>
+
+<div class="layout">
+  <div id="slot-sidenav"></div>
+
+
+  <div class="app">
+    <header class="topbar hub-topbar">
+      <p class="wordmark">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M14 8.6A6 6 0 1 1 7.4 2 4.8 4.8 0 0 0 14 8.6Z" stroke="#e07b2e" stroke-width="1.3" stroke-linejoin="round"/>
+        </svg>
+        kakko.
+      </p>
+      <a class="breadcrumb" href="community.html">← コミュニティ</a>
+      <p class="page-title">コミュニティ作成</p>
+      <p class="page-subtitle">好きな作品のコミュニティをつくろう</p>
+    </header>
+
+    <main class="feed" id="create-view">
+      <div class="form-field">
+        <label class="form-label" for="f-name">コミュニティ名</label>
+        <input type="text" id="f-name" class="form-input" placeholder="例：灰と星屑 感想部" autocomplete="off">
+      </div>
+
+      <div class="form-field">
+        <label class="form-label" for="f-work">対象作品</label>
+        <input type="text" id="f-work" class="form-input" placeholder="例：灰と星屑" autocomplete="off">
+        <div class="dup-warning" id="dup-warning" hidden>
+          <strong>同じ作品を扱う既存のコミュニティがあります</strong>
+          <p id="dup-warning-text"></p>
+          <p class="dup-warning-note">そのまま作成することもできます。</p>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label class="form-label" for="f-desc">コミュニティ概要</label>
+        <textarea id="f-desc" class="form-input form-textarea" rows="3" placeholder="どんなコミュニティか、簡単に紹介しましょう"></textarea>
+        <p class="form-help">URL(https://…)を書くと、コミュニティ詳細画面などでリンクになり、クリックでそのページへ移動できます。</p>
+        <div class="desc-preview" id="desc-preview" hidden>
+          <span class="desc-preview-label">表示イメージ</span>
+          <p id="desc-preview-text"></p>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <span class="form-label">アイコン設定</span>
+        <div class="icon-setting">
+          <div class="icon-preview" id="icon-preview"></div>
+          <div class="icon-controls">
+            <div class="icon-actions">
+              <button type="button" class="icon-btn" id="icon-upload">画像を選ぶ</button>
+              <button type="button" class="icon-btn" id="icon-remove" hidden>画像を外す</button>
+              <input type="file" id="icon-file" accept="image/*" hidden>
+            </div>
+          </div>
+        </div>
+        <p class="form-help">コミュニティのアイコンにする画像を選んでください。未設定の場合は仮のアイコンが表示されます。</p>
+      </div>
+
+      <button type="button" class="create-submit" id="create-submit" disabled>コミュニティを作成する</button>
+    </main>
+
+    <main class="feed" id="success-view" hidden>
+      <section class="success-card">
+        <span class="success-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 11.5 9 16.5 18 6" stroke="#2b2016" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <p class="success-title" id="success-title">コミュニティを作成しました</p>
+        <p class="success-desc">あなたがホストになりました。さっそく最初の投稿をしてみましょう。</p>
+        <div class="success-links">
+          <a class="result-work-link" id="success-detail" href="community-list.html">コミュニティ詳細を見る</a>
+          <a class="ghost-link" href="community-list.html">コミュニティ一覧を見る</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+</div>
+
+<div id="slot-toast"></div>
+
+
+<script src="components-bundle.js"></script>
+<script src="loader.js"></script>
+<script src="community-common.js"></script>
+<script src="community-create.js"></script>
+<script>
+  initCommunityCreate();
+  KakkoLoader.load('component-sidenav.frag', '#slot-sidenav').then(function () { KakkoLoader.markActiveNav('community'); });
+  KakkoLoader.load('component-toast.frag', '#slot-toast');
+</script>
+</body>
+</html>

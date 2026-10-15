@@ -1,0 +1,93 @@
+
+
+
+  /* ---------- community list: filter / favorites ---------- */
+  .filter-row { display: flex; align-items: center; gap: 10px; margin: 16px 0 0; }
+
+
+  .filter-row .search-box { flex: 1; min-width: 0; margin: 0; }
+
+
+  .search-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--ink-soft);
+    border: 1px solid var(--ink-line);
+    border-radius: 999px;
+    padding: 11px 16px;
+  }
+
+
+  .fav-filter {
+    flex: none;
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: 1px solid var(--ink-line);
+    color: var(--muted);
+    font-family: 'Manrope', sans-serif;
+    font-size: 12.5px;
+    font-weight: 700;
+    padding: 10px 14px;
+    border-radius: 999px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  }
+
+
+  .fav-filter:hover { border-color: var(--muted); color: var(--paper-text); }
+
+
+  .fav-filter.active { background: var(--accent-soft); border-color: transparent; color: var(--accent); }
+
+
+
+  .community-row { padding: 0; gap: 6px; cursor: default; }
+
+
+  .community-row-link {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex: 1;
+    min-width: 0;
+    padding: 16px 0;
+    text-decoration: none;
+    color: inherit;
+  }
+
+
+  .community-row-link:hover .community-card-title { color: var(--accent); }
+
+
+  .community-row-link .community-card-body { display: flex; flex-direction: column; gap: 2px; }
+
+
+  .fav-btn {
+    flex: none;
+    appearance: none;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: var(--muted);
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+
+  .fav-btn:hover { background: rgba(243, 230, 210, 0.08); color: var(--paper-text); }
+
+
+  .fav-btn.active { color: var(--accent); }
+
+
+  .detail-empty { padding: 50px 10px; text-align: center; color: var(--muted); font-size: 13.5px; line-height: 1.7; }

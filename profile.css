@@ -1,0 +1,19 @@
+
+
+  .edit-profile-btn {
+    margin-bottom: 12px;
+    background: none;
+    border: 1px solid var(--ink-line);
+    color: var(--paper-text);
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+  }
+
+
+
+  .edit-profile-btn:hover { border-color: var(--muted); }

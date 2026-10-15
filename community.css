@@ -1,0 +1,9 @@
+
+
+  @media (min-width: 980px) {
+    .sidenav { display: flex; }
+    .topbar .wordmark { display: none; }
+    .app { max-width: 1040px; flex: 1 1 auto; }
+    .action-row { flex-direction: row; }
+    .action-card { flex: 1; }
+  }

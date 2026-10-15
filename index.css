@@ -1,0 +1,65 @@
+
+
+  .tab:focus-visible,
+  .veil-trigger:focus-visible,
+  .engage-btn:focus-visible,
+  .hide-again:focus-visible,
+  .composer-submit:focus-visible,
+  .composer-cancel:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+
+
+  .composer-actions {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+
+
+  /* ---------- quote embed: media variant (shows the work's attached image) ---------- */
+
+  .quote-embed.quote-embed-media {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0;
+    overflow: hidden;
+  }
+
+
+
+  .quote-embed-media-img-wrap { position: relative; }
+
+
+
+  .quote-embed-media-img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    display: block;
+    background: var(--ink-soft);
+  }
+
+
+
+  .quote-embed-media-foot {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 13px;
+    background: rgba(243, 230, 210, 0.05);
+  }
+
+
+
+  @media (max-width: 560px) {
+    .composer-foot { flex-wrap: wrap; }
+    .composer-tools { order: 1; }
+    .composer-actions { order: 2; margin-left: auto; }
+  }

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>kakko. ｜ 作品閲覧</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="common.css">
+<link rel="stylesheet" href="works-view.css">
+</head>
+<body>
+
+<div class="layout">
+  <div id="slot-sidenav"></div>
+
+
+  <div class="app">
+
+    <header class="topbar hub-topbar">
+      <p class="wordmark">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M14 8.6A6 6 0 1 1 7.4 2 4.8 4.8 0 0 0 14 8.6Z" stroke="#e07b2e" stroke-width="1.3" stroke-linejoin="round"/>
+        </svg>
+        kakko.
+      </p>
+      <a class="breadcrumb" href="works.html">← 作品</a>
+    </header>
+
+    <div class="works-quicknav">
+      <a class="quicknav-btn quicknav-btn-primary" href="works-upload.html">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        作品投稿
+      </a>
+      <a class="quicknav-btn" href="works-list.html">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1.5" y="1.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="1.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1.2"/><rect x="1.5" y="8" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="8" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1.2"/></svg>
+        マイ作品
+      </a>
+    </div>
+
+    <main class="feed" id="work-view">
+
+      <!-- ===== Video (YouTube-style): 映像 → 名前/アカウント → 概要 → コメント ===== -->
+      <section class="video-block" id="video-block" hidden>
+        <div class="video-player">
+          <img id="video-poster" src="" alt="">
+          <span class="video-play-badge" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="11" fill="rgba(27,20,14,0.55)"/><path d="M10 8.3l6.5 3.7-6.5 3.7v-7.4Z" fill="#f4ead9"/></svg>
+          </span>
+        </div>
+        <p class="video-title" id="video-title"></p>
+        <div class="video-channel-row">
+          <div class="avatar" id="video-author-avatar"></div>
+          <div class="video-channel-info">
+            <span class="video-author-name" id="video-author-name"></span>
+            <span class="video-stats" id="video-stats"></span>
+          </div>
+          <button class="follow-btn" id="video-follow-btn" type="button">フォロー</button>
+          <button class="like-btn-large compact" id="video-like-btn" type="button">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 13.8s-5.6-3.4-5.6-7.3a3.1 3.1 0 0 1 5.6-1.9 3.1 3.1 0 0 1 5.6 1.9c0 3.9-5.6 7.3-5.6 7.3Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+            <span id="video-like-count"></span>
+          </button>
+        </div>
+        <div class="video-description">
+          <p id="video-desc-text"></p>
+          <button class="quote-btn" id="quote-btn-video" type="button">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 5.5h8M4 8h8M4 10.5h5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+            この作品を引用
+          </button>
+        </div>
+      </section>
+
+      <!-- ===== 標準ヘッダー（小説・ブログ・画像） ===== -->
+      <section class="work-header" id="standard-header">
+        <span class="work-icon work-header-icon" id="w-icon"></span>
+        <a class="badge badge-series" id="w-series-pill" href="#" style="display: none; margin-bottom: 10px; text-decoration: none; width: fit-content;"></a>
+        <p class="work-header-title" id="w-title"></p>
+        <div class="work-author-row">
+          <div class="avatar" id="w-author-avatar"></div>
+          <span class="work-author-name" id="w-author-name"></span>
+          <button class="follow-btn" id="w-follow-btn" type="button">フォロー</button>
+        </div>
+        <p class="work-stats" id="w-stats"></p>
+        <button class="like-btn-large" id="w-like-btn" type="button">
+          <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M8 13.8s-5.6-3.4-5.6-7.3a3.1 3.1 0 0 1 5.6-1.9 3.1 3.1 0 0 1 5.6 1.9c0 3.9-5.6 7.3-5.6 7.3Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+          <span id="w-like-count"></span>
+        </button>
+      </section>
+
+      <!-- ===== 画像ギャラリー（画像作品） ===== -->
+      <div class="work-gallery" id="work-gallery" hidden>
+        <div class="gallery-images" id="gallery-images"></div>
+        <button class="quote-btn quote-btn-gallery" id="quote-btn-gallery" type="button" aria-label="この作品を引用">
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 5.5h8M4 8h8M4 10.5h5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+          引用
+        </button>
+      </div>
+
+      <!-- ===== 本文（小説・ブログ） ===== -->
+      <div class="work-body" id="w-body"></div>
+
+      <!-- ===== 追従する引用ボタン（文字作品のみ） ===== -->
+      <button class="quote-btn quote-btn-sticky" id="quote-btn-sticky" type="button" hidden>
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 5.5h8M4 8h8M4 10.5h5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        引用
+      </button>
+
+      <h2 class="result-heading section-heading" id="w-related-heading">関連作品</h2>
+      <section class="community-list" id="w-related"></section>
+
+      <h2 class="result-heading section-heading">コメント</h2>
+      <div class="comment-composer">
+        <div class="avatar a1">あ</div>
+        <input type="text" id="comment-input" class="comment-input" placeholder="感想を書く" autocomplete="off">
+        <button id="comment-submit" class="comment-submit" type="button" disabled>送信</button>
+      </div>
+      <div id="w-comments"></div>
+
+    </main>
+
+  </div>
+
+</div>
+<div id="slot-toast"></div>
+
+
+<script src="components-bundle.js"></script>
+<script src="loader.js"></script>
+<script src="community-common.js"></script>
+<script src="works-view.js"></script>
+<script>
+  initWorksView();
+  KakkoLoader.load('component-sidenav.frag', '#slot-sidenav').then(function () { KakkoLoader.markActiveNav('works'); });
+  KakkoLoader.load('component-toast.frag', '#slot-toast');
+</script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>kakko. ｜ ユーザープロフィール</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="common.css">
+<link rel="stylesheet" href="user-profile.css">
+</head>
+<body>
+
+<div class="layout">
+  <div id="slot-sidenav"></div>
+
+
+  <div class="app">
+
+    <header class="topbar profile-topbar">
+      <div class="profile-topbar-row">
+        <a class="back-btn" href="index.html" aria-label="戻る">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M11 3.5 5 9l6 5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <div class="profile-topbar-text">
+          <p class="profile-topbar-name" id="profile-topbar-name">あなた</p>
+          <p class="profile-topbar-count" id="profile-topbar-count">投稿 128件</p>
+        </div>
+      </div>
+    </header>
+
+    <div class="profile-header">
+      <div class="profile-banner"></div>
+      <div class="profile-header-row">
+        <div class="profile-avatar-wrap">
+          <div class="avatar a1 profile-avatar" id="profile-header-avatar">あ</div>
+        </div>
+        <button class="follow-btn profile-follow-btn" id="profile-follow-btn" type="button">フォロー</button>
+      </div>
+
+      <div class="profile-identity">
+        <p class="profile-name" id="profile-name-text">あなた</p>
+        <p class="profile-handle" id="profile-handle-text">@anata_kakko</p>
+      </div>
+
+      <p class="profile-bio" id="profile-bio-text">物語を読むのも書くのも好きです。灰と星屑、夜想曲のリベルタが今期のお気に入り。感想はいつでも大歓迎。</p>
+
+      <ul class="profile-meta-list">
+        <li class="profile-meta-item">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 4.2h10v8.1H2z" stroke="currentColor" stroke-width="1.1"/><path d="M2 4.2 7 8l5-3.8" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/></svg>
+          <span id="profile-meta-location">東京</span>
+        </li>
+        <li class="profile-meta-item">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5 2h4M5 12h4M4 2h6l-1 3.6L11 12H3l2-6.4L4 2Z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/></svg>
+          <a class="profile-link" href="#" id="profile-meta-link">kakko.jp/@anata_kakko</a>
+        </li>
+        <li class="profile-meta-item">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="2" y="2.5" width="10" height="9" rx="1.4" stroke="currentColor" stroke-width="1.1"/><path d="M2 5.3h10" stroke="currentColor" stroke-width="1.1"/></svg>
+          <span id="profile-meta-joined">2023年4月から利用</span>
+        </li>
+      </ul>
+
+      <div class="profile-follow-counts">
+        <button class="follow-count-btn" type="button" data-modal="following">
+          <strong id="profile-following-count">312</strong> フォロー中
+        </button>
+        <button class="follow-count-btn" type="button" data-modal="followers">
+          <strong id="profile-followers-count">4,980</strong> フォロワー
+        </button>
+      </div>
+    </div>
+
+    <nav class="profile-tabs" role="tablist" aria-label="プロフィール表示切り替え">
+      <button class="tab-scroll-btn tab-scroll-left" type="button" aria-label="左にスクロール" hidden>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M8.5 2.5 3.5 7l5 4.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="tabs-scroll" id="profile-tabs-scroll">
+        <button class="tab active" role="tab" aria-selected="true" data-view="posts">投稿</button>
+        <button class="tab" role="tab" aria-selected="false" data-view="replies">返信</button>
+        <button class="tab" role="tab" aria-selected="false" data-view="media">メディア</button>
+        <button class="tab" role="tab" aria-selected="false" data-view="works">作品</button>
+        <button class="tab" role="tab" aria-selected="false" data-view="likes">いいね</button>
+      </div>
+      <button class="tab-scroll-btn tab-scroll-right" type="button" aria-label="右にスクロール" hidden>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M5.5 2.5 10.5 7l-5 4.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </nav>
+
+    <main class="feed profile-feed">
+
+      <!-- ===== 投稿 ===== -->
+      <div class="profile-view" id="view-posts">
+        <article class="post">
+          <div class="post-head">
+            <div class="avatar a1" id="profile-post1-avatar">あ</div>
+            <div class="post-meta">
+              <span class="name" id="profile-post1-name">あなた</span>
+              <span class="community">灰と星屑 感想部</span>
+            </div>
+            <time class="time">2時間前</time>
+          </div>
+          <p class="body">最終話、まさかあの伏線がここで回収されるとは…完全に予想を裏切られた。</p>
+          <div class="engage">
+            <button class="engage-btn like" aria-label="いいね"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 13.8s-5.6-3.4-5.6-7.3a3.1 3.1 0 0 1 5.6-1.9 3.1 3.1 0 0 1 5.6 1.9c0 3.9-5.6 7.3-5.6 7.3Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>18</button>
+            <button class="engage-btn" aria-label="コメント"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2.5 3.5h11v7.2h-6l-3 2.6v-2.6h-2V3.5Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>4</button>
+          </div>
+        </article>
+        <article class="post">
+          <div class="post-head">
+            <div class="avatar a1" id="profile-post2-avatar">あ</div>
+            <div class="post-meta">
+              <span class="name" id="profile-post2-name">あなた</span>
+              <span class="community">サイレント・チャプター部</span>
+            </div>
+            <time class="time">1日前</time>
+          </div>
+          <p class="body">OPのアニメーションが毎回芸術点高すぎる。今期一番かもしれない。</p>
+          <div class="engage">
+            <button class="engage-btn like" aria-label="いいね"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 13.8s-5.6-3.4-5.6-7.3a3.1 3.1 0 0 1 5.6-1.9 3.1 3.1 0 0 1 5.6 1.9c0 3.9-5.6 7.3-5.6 7.3Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>56</button>
+            <button class="engage-btn" aria-label="コメント"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2.5 3.5h11v7.2h-6l-3 2.6v-2.6h-2V3.5Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>12</button>
+          </div>
+        </article>
+      </div>
+
+      <!-- ===== 返信 ===== -->
+      <div class="profile-view" id="view-replies" hidden>
+        <article class="post">
+          <div class="post-head">
+            <div class="avatar a1" id="profile-reply1-avatar">あ</div>
+            <div class="post-meta">
+              <span class="name" id="profile-reply1-name">あなた</span>
+              <span class="community">灰と星屑 感想部</span>
+            </div>
+            <time class="time">40分前</time>
+          </div>
+          <p class="reply-to">返信先: <span class="reply-to-name">@yuki</span></p>
+          <p class="body">わかります、あのシーンは何回読み返しても泣いてしまいます…</p>
+          <div class="engage">
+            <button class="engage-btn like" aria-label="いいね"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 13.8s-5.6-3.4-5.6-7.3a3.1 3.1 0 0 1 5.6-1.9 3.1 3.1 0 0 1 5.6 1.9c0 3.9-5.6 7.3-5.6 7.3Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>7</button>
+            <button class="engage-btn" aria-label="コメント"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2.5 3.5h11v7.2h-6l-3 2.6v-2.6h-2V3.5Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>1</button>
+          </div>
+        </article>
+      </div>
+
+      <!-- ===== メディア ===== -->
+      <div class="profile-view media-grid" id="view-media" hidden>
+        <div class="media-tile" style="background: linear-gradient(135deg, var(--avatar-1), #7a3a2c 65%, var(--ink-soft));"></div>
+        <div class="media-tile" style="background: linear-gradient(135deg, #6f8a5c, #384a2c 65%, var(--ink-soft));"></div>
+        <div class="media-tile" style="background: linear-gradient(135deg, var(--avatar-2), #2e4468 65%, var(--ink-soft));"></div>
+      </div>
+
+      <!-- ===== 作品 ===== -->
+      <div class="profile-view" id="view-works" hidden>
+        <article class="result-work">
+          <div class="work-icon">
+            <svg width="21" height="21" viewBox="0 0 22 22" fill="none"><path d="M11 2 13.8 8.4 20.8 9 15.4 13.6 17 20.4 11 16.7 5 20.4 6.6 13.6 1.2 9 8.2 8.4 11 2Z" stroke="#f4ead9" stroke-width="1.1" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="result-work-body">
+            <p class="result-work-title">灰と星屑</p>
+            <p class="result-work-meta">小説 ・ 閲覧 8.4万</p>
+          </div>
+          <a class="result-work-link" href="works-view.html?id=hai">見る</a>
+        </article>
+      </div>
+
+      <!-- ===== いいね ===== -->
+      <div class="profile-view" id="view-likes" hidden>
+        <article class="post">
+          <div class="post-head">
+            <div class="avatar a3">り</div>
+            <div class="post-meta">
+              <span class="name">りく</span>
+              <span class="community">灰と星屑 感想部</span>
+            </div>
+            <time class="time">2時間前</time>
+          </div>
+          <p class="body">『灰と星屑』3巻の表紙、伏線だったのか…読み返して鳥肌立った。</p>
+          <div class="engage">
+            <button class="engage-btn like active" aria-label="いいね"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 13.8s-5.6-3.4-5.6-7.3a3.1 3.1 0 0 1 5.6-1.9 3.1 3.1 0 0 1 5.6 1.9c0 3.9-5.6 7.3-5.6 7.3Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>31</button>
+            <button class="engage-btn" aria-label="コメント"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2.5 3.5h11v7.2h-6l-3 2.6v-2.6h-2V3.5Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>3</button>
+          </div>
+        </article>
+      </div>
+
+    </main>
+
+    <!-- ===== フォロー / フォロワー モーダル ===== -->
+    <div class="modal-overlay" id="follow-modal-overlay" hidden>
+      <div class="modal" role="dialog" aria-label="フォローリスト">
+        <div class="modal-head">
+          <p class="modal-title" id="follow-modal-title">フォロー中</p>
+          <button class="palette-close" id="follow-modal-close" type="button" aria-label="閉じる">×</button>
+        </div>
+        <div class="modal-list" id="follow-modal-list"></div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<div id="slot-toast"></div>
+
+
+<script src="components-bundle.js"></script>
+<script src="loader.js"></script>
+<script src="community-common.js"></script>
+<script src="user-profile.js"></script>
+<script>
+  initUserProfile();
+  KakkoLoader.load('component-sidenav.frag', '#slot-sidenav').then(function () { /* no matching sidenav item for this page */ });
+  KakkoLoader.load('component-toast.frag', '#slot-toast');
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+
+
+  /* ---------- 検索前：話題のコミュニティ ---------- */
+
+  .community-list { display: flex; flex-direction: column; }
+
+
+
+  /* ---------- 検索中：検索履歴(デモ) ---------- */
+
+  .history-list { display: flex; flex-direction: column; }
+
+
+
+  .history-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--ink-line);
+    background: none;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    text-align: left;
+    cursor: pointer;
+    font-family: inherit;
+    color: var(--paper-text);
+  }
+
+
+
+  .history-list .history-row:last-child { border-bottom: none; }
+
+
+
+  .history-row:hover .history-term { color: var(--accent); }
+
+
+
+  .history-icon { flex: none; color: var(--muted); display: flex; }
+
+
+
+  .history-term { flex: 1; min-width: 0; font-size: 14.5px; }

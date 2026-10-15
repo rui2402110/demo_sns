@@ -1,0 +1,48 @@
+
+
+
+  /* ---------- community search: tabs / results ---------- */
+  .hub-topbar { padding-bottom: 0; }
+
+
+  .tab:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+
+  .result-count { font-family: 'Manrope', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.05em; color: var(--muted); margin: 14px 0 0; }
+
+
+  .join-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+
+
+  .detail-btn {
+    display: inline-flex;
+    align-items: center;
+    flex: none;
+    font-family: 'Manrope', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--paper-text);
+    text-decoration: none;
+    border: 1px solid var(--ink-line);
+    padding: 8px 17px;
+    border-radius: 20px;
+    transition: border-color 0.2s ease;
+  }
+
+
+  .detail-btn:hover { border-color: var(--muted); }
+
+
+  .result-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--ink-line);
+  }
+
+
+  .result-user:last-child { border-bottom: none; }
+
+
+  .empty-result { padding: 60px 10px; text-align: center; color: var(--muted); font-size: 13.5px; line-height: 1.7; }

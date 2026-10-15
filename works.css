@@ -1,0 +1,228 @@
+
+
+  /* ---------- left sidebar nav (desktop static / mobile drawer) ---------- */
+
+  .sidenav {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 248px;
+    flex: none;
+    min-height: 100vh;
+    padding: 26px 16px;
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+  }
+
+
+
+  /* mobile drawer state: sidenav slides in from the left over a backdrop */
+  .sidenav.mobile-open {
+    display: flex;
+    position: fixed;
+    inset: 0 auto 0 0;
+    height: 100vh;
+    width: 248px;
+    max-width: 82vw;
+    z-index: 90;
+    background: var(--ink);
+    box-shadow: 10px 0 34px rgba(0, 0, 0, 0.45);
+    animation: sidenav-slide-in 0.22s ease;
+  }
+
+
+
+  @keyframes sidenav-slide-in {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+  }
+
+
+
+  .sidenav-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 14, 8, 0.55);
+    z-index: 85;
+  }
+
+
+
+  .sidenav-backdrop.show { display: block; }
+
+
+
+  .sidenav-close-btn {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(243, 230, 210, 0.08);
+    color: var(--paper-text);
+    cursor: pointer;
+    margin: 0 0 20px 12px;
+  }
+
+
+
+  .sidenav.mobile-open .sidenav-close-btn { display: flex; }
+
+
+
+  /* ---------- hamburger menu toggle (mobile only) ---------- */
+
+  .topbar-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 0 0 18px;
+  }
+
+
+
+  .topbar-row .wordmark { margin: 0; }
+
+
+
+  .menu-toggle-btn {
+    flex: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--ink-line);
+    background: var(--ink-soft);
+    color: var(--paper-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+  }
+
+
+
+  .menu-toggle-btn:hover { border-color: var(--muted); }
+
+
+
+  /* ---------- work grid (ART-street style tiles) ---------- */
+
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 8px;
+  }
+
+
+
+  .work-card { position: relative; }
+
+
+
+  .work-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: var(--ink-soft);
+    border: 1px solid var(--ink-line);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+
+
+
+  .work-card-link:hover { border-color: var(--muted); transform: translateY(-1px); }
+
+
+
+  .work-cover {
+    position: relative;
+    height: 118px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--avatar-1), #7a3a2c 65%, var(--ink-soft));
+  }
+
+
+
+  .work-fav-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 2;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: rgba(27, 20, 14, 0.5);
+    border: none;
+    color: #f4ead9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+
+
+
+  .work-fav-btn.active { color: var(--accent); }
+
+
+
+  .work-card-body { padding: 9px 11px 11px; }
+
+
+
+  .work-card-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 13px;
+    color: var(--paper-text);
+    margin: 0 0 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+
+
+  .work-card-meta {
+    font-size: 10.5px;
+    color: var(--muted);
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+
+
+  @media (min-width: 980px) {
+    .sidenav { display: flex; }
+    .topbar .wordmark { display: none; }
+    .topbar-row { display: none; }
+    .menu-toggle-btn { display: none; }
+    .sidenav-backdrop { display: none !important; }
+    .app { max-width: 1040px; flex: 1 1 auto; }
+    .action-row { flex-direction: row; }
+    .action-card { flex: 1; }
+    .work-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+    .work-cover { height: 260px; }
+    .work-card-body { padding: 14px 16px 16px; }
+    .work-card-title { font-size: 16.5px; white-space: normal; }
+    .work-card-meta { font-size: 12.5px; }
+    .work-cover-badge { font-size: 11.5px; padding: 4px 10px; }
+    .work-fav-btn { width: 30px; height: 30px; }
+  }

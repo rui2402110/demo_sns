@@ -1,0 +1,102 @@
+
+
+  .palette-item {
+    width: 100%;
+    appearance: none;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 10px 11px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: background-color 0.2s ease;
+  }
+
+
+
+
+  /* ---------- community detail (shared screen) ---------- */
+  .detail-icon { margin-bottom: 14px; }
+
+
+  .host-row {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 0 0 14px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+
+  .host-label {
+    font-family: 'Manrope', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    border: 1px solid var(--ink-line);
+    border-radius: 20px;
+    padding: 2px 9px;
+  }
+
+
+  .host-row .avatar { width: 26px; height: 26px; font-size: 12px; }
+
+
+  .host-name { font-weight: 600; color: var(--paper-text); }
+
+
+  .detail-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+
+
+  .join-btn {
+    appearance: none;
+    border: none;
+    background: var(--accent);
+    color: var(--ink);
+    font-family: 'Manrope', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 9px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+
+
+  .join-btn:hover { transform: translateY(-1px); }
+
+
+  .fav-toggle {
+    appearance: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: none;
+    border: 1px solid var(--ink-line);
+    color: var(--paper-text);
+    font-family: 'Manrope', sans-serif;
+    font-size: 12.5px;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  }
+
+
+  .fav-toggle:hover { border-color: var(--muted); }
+
+
+  .fav-toggle.active { background: var(--accent-soft); border-color: transparent; color: var(--accent); }
+
+
+  .detail-hint { font-size: 12px; color: var(--muted); margin: 12px 0 0; width: 100%; }
+
+
+  .detail-empty { padding: 40px 10px; text-align: center; color: var(--muted); font-size: 13.5px; line-height: 1.7; }

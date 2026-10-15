@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>kakko. ｜ 検索</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="common.css">
+<link rel="stylesheet" href="search.css">
+</head>
+<body>
+
+<div class="layout">
+  <div id="slot-sidenav"></div>
+
+
+  <div class="app">
+
+    <header class="topbar">
+      <p class="wordmark">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M14 8.6A6 6 0 1 1 7.4 2 4.8 4.8 0 0 0 14 8.6Z" stroke="#e07b2e" stroke-width="1.3" stroke-linejoin="round"/>
+        </svg>
+        kakko.
+      </p>
+
+      <div class="search-box">
+        <svg class="search-box-icon" width="17" height="17" viewBox="0 0 17 17" fill="none"><circle cx="7.5" cy="7.5" r="5.3" stroke="currentColor" stroke-width="1.4"/><path d="M11.5 11.5 15 15" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        <input type="text" id="search-input" class="search-box-input" placeholder="作品名、感想、ユーザーを検索" value="" autocomplete="off">
+        <button class="search-clear" id="search-clear" type="button" aria-label="検索をクリア">
+          <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2 2l8 8M10 2l-8 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+
+      <nav class="tabs" role="tablist" aria-label="検索結果の絞り込み">
+        <button class="tab active" role="tab" aria-selected="true" data-filter="all">すべて</button>
+        <button class="tab" role="tab" aria-selected="false" data-filter="post">投稿</button>
+        <button class="tab" role="tab" aria-selected="false" data-filter="work">作品</button>
+        <button class="tab" role="tab" aria-selected="false" data-filter="user">ユーザー</button>
+      </nav>
+      <div class="tab-track"><span class="tab-indicator"></span></div>
+    </header>
+
+    <!-- ===== 検索前：話題のコミュニティ ===== -->
+    <main class="feed" id="trending-state">
+      <h2 class="result-heading">話題のコミュニティ</h2>
+      <section class="community-list" id="trending-list"></section>
+    </main>
+
+    <!-- ===== 検索中：検索履歴(デモ) ===== -->
+    <main class="feed" id="history-state" hidden>
+      <h2 class="result-heading">検索履歴</h2>
+      <section class="history-list" id="history-list"></section>
+    </main>
+
+    <main class="feed" id="results" hidden>
+
+      <section class="result-group" data-type="work">
+        <h2 class="result-heading">作品</h2>
+        <article class="result-work">
+          <div class="work-icon">
+            <svg width="21" height="21" viewBox="0 0 22 22" fill="none"><path d="M11 2 13.8 8.4 20.8 9 15.4 13.6 17 20.4 11 16.7 5 20.4 6.6 13.6 1.2 9 8.2 8.4 11 2Z" stroke="#f4ead9" stroke-width="1.1" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="result-work-body">
+            <p class="result-work-title">灰と星屑</p>
+            <p class="result-work-meta">コミュニティ 1.2万人 ・ 感想 3,204件</p>
+          </div>
+          <a class="result-work-link" href="#">見る</a>
+        </article>
+      </section>
+
+      <section class="result-group" data-type="user">
+        <h2 class="result-heading">ユーザー</h2>
+        <article class="result-user">
+          <div class="avatar a1">ゆ</div>
+          <div class="result-user-body">
+            <p class="name">ゆき</p>
+            <p class="result-user-meta">灰と星屑 感想部 に参加</p>
+          </div>
+          <button class="follow-btn" type="button">フォロー</button>
+        </article>
+        <article class="result-user">
+          <div class="avatar a2">り</div>
+          <div class="result-user-body">
+            <p class="name">りく</p>
+            <p class="result-user-meta">灰と星屑 感想部 に参加</p>
+          </div>
+          <button class="follow-btn" type="button">フォロー</button>
+        </article>
+      </section>
+
+      <section class="result-group" data-type="post">
+        <h2 class="result-heading">投稿</h2>
+
+        <article class="post">
+          <div class="post-head">
+            <div class="avatar a1">ゆ</div>
+            <div class="post-meta">
+              <span class="name">ゆき</span>
+              <span class="community">灰と星屑 感想部</span>
+            </div>
+            <time class="time">3分前</time>
+          </div>
+          <p class="body">『<mark>灰と星屑</mark>』最終話、まさかあの伏線がここで回収されるとは…完全に予想を裏切られた。読み終えた後もしばらく放心してた。</p>
+          <div class="engage">
+            <button class="engage-btn like" aria-label="いいね">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 13.8s-5.6-3.4-5.6-7.3a3.1 3.1 0 0 1 5.6-1.9 3.1 3.1 0 0 1 5.6 1.9c0 3.9-5.6 7.3-5.6 7.3Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+              24
+            </button>
+            <button class="engage-btn" aria-label="コメント">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2.5 3.5h11v7.2h-6l-3 2.6v-2.6h-2V3.5Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+              5
+            </button>
+          </div>
+        </article>
+
+        <article class="post">
+          <div class="post-head">
+            <div class="avatar a2">り</div>
+            <div class="post-meta">
+              <span class="name">りく</span>
+              <span class="community">灰と星屑 感想部</span>
+            </div>
+            <time class="time">2時間前</time>
+          </div>
+          <p class="body">『<mark>灰と星屑</mark>』3巻の表紙、伏線だったのか…読み返して鳥肌立った。</p>
+          <div class="engage">
+            <button class="engage-btn like" aria-label="いいね">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 13.8s-5.6-3.4-5.6-7.3a3.1 3.1 0 0 1 5.6-1.9 3.1 3.1 0 0 1 5.6 1.9c0 3.9-5.6 7.3-5.6 7.3Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+              31
+            </button>
+            <button class="engage-btn" aria-label="コメント">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2.5 3.5h11v7.2h-6l-3 2.6v-2.6h-2V3.5Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>
+              3
+            </button>
+          </div>
+        </article>
+
+      </section>
+
+    </main>
+
+  </div>
+
+</div>
+
+<div id="slot-toast"></div>
+
+
+<script src="components-bundle.js"></script>
+<script src="loader.js"></script>
+<script src="community-common.js"></script>
+<script src="search.js"></script>
+<script>
+  initSearch();
+  KakkoLoader.load('component-sidenav.frag', '#slot-sidenav').then(function () { KakkoLoader.markActiveNav('search'); });
+  KakkoLoader.load('component-toast.frag', '#slot-toast');
+</script>
+</body>
+</html>

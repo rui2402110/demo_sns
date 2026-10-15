@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>kakko. ｜ コミュニティ詳細</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="common.css">
+<link rel="stylesheet" href="community-detail.css">
+</head>
+<body>
+
+<div class="layout">
+
+  <div id="slot-sidenav"></div>
+
+  <div class="app">
+    <header class="topbar hub-topbar">
+      <p class="wordmark">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M14 8.6A6 6 0 1 1 7.4 2 4.8 4.8 0 0 0 14 8.6Z" stroke="#e07b2e" stroke-width="1.3" stroke-linejoin="round"/>
+        </svg>
+        kakko.
+      </p>
+      <a class="breadcrumb" id="back-link" href="community-list.html">← コミュニティ一覧</a>
+    </header>
+
+    <main class="feed" id="detail-root"></main>
+  </div>
+
+</div>
+
+<div id="slot-toast"></div>
+
+
+<div id="slot-mute-panel"></div>
+
+
+<div id="slot-reply-modal"></div>
+
+<script src="components-bundle.js"></script>
+<script src="loader.js"></script>
+<script src="community-common.js"></script>
+<script src="mute-panel.js"></script>
+<script src="reply-modal.js"></script>
+<script src="community-detail.js"></script>
+<script>
+  Promise.all([
+    KakkoLoader.load('component-sidenav.frag', '#slot-sidenav').then(function () {
+      KakkoLoader.markActiveNav('community');
+    }),
+    KakkoLoader.load('component-toast.frag', '#slot-toast'),
+    KakkoLoader.load('component-mute-panel.frag', '#slot-mute-panel'),
+    KakkoLoader.load('component-reply-modal.frag', '#slot-reply-modal')
+  ]).then(function () {
+    initCommunityDetail();
+    initMutePanel();
+    initReplyModal();
+  });
+</script>
+
+</body>
+</html>

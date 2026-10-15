@@ -1,0 +1,107 @@
+
+
+
+  /* ---------- community create: icon setting / description preview ---------- */
+  .form-help { font-size: 12px; line-height: 1.6; color: var(--muted); margin: 8px 0 0; }
+
+
+  .desc-preview {
+    margin-top: 10px;
+    padding: 12px 14px;
+    background: rgba(243, 230, 210, 0.04);
+    border: 1px dashed var(--ink-line);
+    border-radius: 10px;
+  }
+
+
+  .desc-preview-label { display: block; font-family: 'Manrope', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 4px; }
+
+
+  .desc-preview p { margin: 0; font-size: 13px; line-height: 1.7; color: var(--paper-text); white-space: pre-wrap; word-break: break-all; }
+
+
+  .kc-link { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+
+
+
+  .icon-setting { display: flex; align-items: flex-start; gap: 18px; }
+
+
+  .icon-preview { flex: none; }
+
+
+  .icon-controls { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 12px; }
+
+
+  .icon-row-label { font-size: 11.5px; font-weight: 700; color: var(--muted); margin: 0 0 6px; }
+
+
+  .icon-options { display: flex; flex-wrap: wrap; gap: 8px; }
+
+
+  .swatch, .glyph-btn {
+    appearance: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+
+
+  .swatch:hover, .glyph-btn:hover { transform: translateY(-1px); }
+
+
+  .glyph-btn { background: var(--ink-soft); border-color: var(--ink-line); }
+
+
+  .swatch.active, .glyph-btn.active { border-color: var(--accent); }
+
+
+  .icon-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+
+
+  .icon-btn {
+    appearance: none;
+    background: none;
+    border: 1px solid var(--ink-line);
+    color: var(--paper-text);
+    font-family: 'Manrope', sans-serif;
+    font-size: 12.5px;
+    font-weight: 700;
+    padding: 8px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+  }
+
+
+  .icon-btn:hover { border-color: var(--muted); }
+
+
+  .icon-btn[hidden] { display: none; }
+
+
+  .success-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+
+
+  .success-links .ghost-link {
+    display: inline-flex;
+    align-items: center;
+    font-family: 'Manrope', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--paper-text);
+    text-decoration: none;
+    border: 1px solid var(--ink-line);
+    padding: 8px 17px;
+    border-radius: 20px;
+  }
+
+
+  .success-links .ghost-link:hover { border-color: var(--muted); }
