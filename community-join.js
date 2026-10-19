@@ -60,7 +60,8 @@ function initCommunityJoin() {
     clearBtn.hidden = q.length === 0;
     let items = collect().filter(it => matches(it, q));
     // 参加済みのコミュニティは、参加先を探す画面には表示しない
-    items = items.filter(it => it.kind !== 'community' || !Kakko.isJoined(it.c.id));
+    // ユーザー(ホスト)のタイルは表示しない
+    items = items.filter(it => it.kind === 'community' && !Kakko.isJoined(it.c.id));
     items.sort((a, b) => mode === 'oldest' ? a.created - b.created : b.created - a.created);
 
     resultsEl.innerHTML = items.map(it => it.kind === 'community' ? communityTile(it.c) : userTile(it.u, it.c)).join('');
