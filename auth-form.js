@@ -10,6 +10,11 @@ function initAuthForm() {
     { input: document.getElementById('auth-username'), error: document.getElementById('auth-username-error'), msg: 'ユーザー名を入力してください' },
     { input: document.getElementById('auth-password'), error: document.getElementById('auth-password-error'), msg: 'パスワードを入力してください' }
   ];
+  // 新規登録のみ: パスワード(確認)欄
+  var confirmInput = document.getElementById('auth-password-confirm');
+  if (confirmInput) {
+    fields.push({ input: confirmInput, error: document.getElementById('auth-password-confirm-error'), msg: '確認用のパスワードを入力してください', confirm: true });
+  }
   var status = document.getElementById('auth-status');
 
   function setError(f, text) {
@@ -19,7 +24,11 @@ function initAuthForm() {
   }
 
   fields.forEach(function (f) {
-    f.input.addEventListener('input', function () { setError(f, ''); status.classList.remove('show'); });
+    f.input.addEventListener('input', function () {
+      setError(f, '');
+      if (f === fields[1] && confirmInput) setError(fields[2], '');
+      status.classList.remove('show');
+    });
   });
 
   form.addEventListener('submit', function (e) {
@@ -27,8 +36,10 @@ function initAuthForm() {
     var firstInvalid = null;
     fields.forEach(function (f) {
       var empty = f.input.value.trim().length === 0;
-      setError(f, empty ? f.msg : '');
-      if (empty && !firstInvalid) firstInvalid = f.input;
+      var text = empty ? f.msg : '';
+      if (!empty && f.confirm && f.input.value !== fields[1].input.value) text = 'パスワードが一致しません';
+      setError(f, text);
+      if (text && !firstInvalid) firstInvalid = f.input;
     });
     if (firstInvalid) { firstInvalid.focus(); status.classList.remove('show'); return; }
 
