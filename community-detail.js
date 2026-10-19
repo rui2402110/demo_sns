@@ -9,6 +9,7 @@
  * mute-panel.js, reply-modal.js.
  */
 function initCommunityDetail() {
+  initPostReplies();
   // ---- コミュニティ詳細(一覧・検索・ホバーカードなど全ての入口から共通で開く画面) ----
   const params = new URLSearchParams(window.location.search);
   const community = Kakko.get(params.get('c'));

@@ -46,8 +46,15 @@
       created: '2026-03-02', baseJoined: true, icon: { glyph: 'star', color: 'orange' },
       desc: '隕石が降った夜から始まる、幼馴染ふたりの再生の物語について語り合うコミュニティです。ルールはこちら → https://example.com/hai-rules',
       posts: [
-        { av: 'a1', ini: 'ゆ', name: 'ゆき', time: '3分前', body: '最終話、まさかあの伏線がここで回収されるとは…完全に予想を裏切られた。読み終えた後もしばらく放心してた。', likes: 24, comments: 5 },
-        { av: 'a2', ini: 'り', name: 'りく', time: '2時間前', body: '3巻の表紙、伏線だったのか…読み返して鳥肌立った。', likes: 31, comments: 3 }
+        { av: 'a1', ini: 'ゆ', name: 'ゆき', time: '3分前', body: '最終話、まさかあの伏線がここで回収されるとは…完全に予想を裏切られた。読み終えた後もしばらく放心してた。', likes: 24, comments: 2,
+          replies: [
+            { av: 'a2', ini: 'り', name: 'りく', time: '2分前', text: 'わかる、あそこで声出た' },
+            { av: 'a3', ini: 'せ', name: 'せんな', time: '1分前', text: '伏線、1巻からあったんですね…読み返します' }
+          ] },
+        { av: 'a2', ini: 'り', name: 'りく', time: '2時間前', body: '3巻の表紙、伏線だったのか…読み返して鳥肌立った。', likes: 31, comments: 1,
+          replies: [
+            { av: 'a1', ini: 'ゆ', name: 'ゆき', time: '1時間前', text: '気づかなかった…！言われて見返したら鳥肌' }
+          ] }
       ]
     },
     {
@@ -55,7 +62,11 @@
       created: '2026-04-18', baseJoined: true, icon: { glyph: 'book', color: 'olive' },
       desc: '静かな筆致で描かれる心理劇「サイレント・チャプター」の感想を語り合うコミュニティです。',
       posts: [
-        { av: 'a3', ini: 'せ', name: 'せんな', time: '1時間前', body: 'OPのアニメーションが毎回芸術点高すぎる。今期一番かもしれない。', likes: 56, comments: 12 }
+        { av: 'a3', ini: 'せ', name: 'せんな', time: '1時間前', body: 'OPのアニメーションが毎回芸術点高すぎる。今期一番かもしれない。', likes: 56, comments: 2,
+          replies: [
+            { av: 'a2', ini: 'は', name: 'はると', time: '40分前', text: 'わかります、毎週OPだけで満足してます' },
+            { av: 'a3', ini: 'し', name: 'しおり', time: '20分前', text: '作画担当、他の作品も調べたくなりました' }
+          ] }
       ]
     },
     {
@@ -63,7 +74,7 @@
       created: '2026-06-05', baseJoined: false, icon: { glyph: 'moon', color: 'blue' },
       desc: '亡くなった恋人を想う主人公の、痛みと再生の物語。誰でもすぐに参加できます。',
       posts: [
-        { av: 'a2', ini: 'は', name: 'はると', time: '25分前', body: 'え、あの二人がまさかの再会…？！ここからどう転がるのか全く読めない', likes: 9, comments: 1 }
+        { av: 'a2', ini: 'は', name: 'はると', time: '25分前', body: 'え、あの二人がまさかの再会…？！ここからどう転がるのか全く読めない', likes: 9, comments: 0, replies: [] }
       ]
     },
     {
@@ -71,7 +82,10 @@
       created: '2026-07-22', baseJoined: false, icon: { glyph: 'flower', color: 'green' },
       desc: '静かな連作短編集『花布の記憶』の読書会です。毎週の課題話はこちら → https://example.com/kafu-schedule',
       posts: [
-        { av: 'a3', ini: 'し', name: 'しおり', time: '昨日', body: '今週の課題は第3編。あの一文の余韻がずっと残ってる。', likes: 14, comments: 2 }
+        { av: 'a3', ini: 'し', name: 'しおり', time: '昨日', body: '今週の課題は第3編。あの一文の余韻がずっと残ってる。', likes: 14, comments: 1,
+          replies: [
+            { av: 'a2', ini: 'り', name: 'りく', time: '昨日', text: 'あの一文、何度も読み返しました' }
+          ] }
       ]
     },
     {
@@ -79,7 +93,11 @@
       created: '2026-08-30', baseJoined: false, icon: { glyph: 'star', color: 'plum' },
       desc: '『灰と星屑』の伏線や構成を掘り下げる、考察好きのためのコミュニティです。',
       posts: [
-        { av: 'a2', ini: 'り', name: 'りく', time: '3時間前', body: '冒頭の隕石の描写、ラストの再会と対になってる気がする。', likes: 18, comments: 4 }
+        { av: 'a2', ini: 'り', name: 'りく', time: '3時間前', body: '冒頭の隕石の描写、ラストの再会と対になってる気がする。', likes: 18, comments: 2,
+          replies: [
+            { av: 'a1', ini: 'ゆ', name: 'ゆき', time: '2時間前', text: '言われてみると確かに対になってますね' },
+            { av: 'a3', ini: 'せ', name: 'せんな', time: '1時間前', text: '考察記事書きたくなった' }
+          ] }
       ]
     }
   ];
@@ -203,6 +221,29 @@
   // ---------- 投稿カード(コミュニティTL用) ----------
   var HEART = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 13.8s-5.6-3.4-5.6-7.3a3.1 3.1 0 0 1 5.6-1.9 3.1 3.1 0 0 1 5.6 1.9c0 3.9-5.6 7.3-5.6 7.3Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>';
   var BUBBLE = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2.5 3.5h11v7.2h-6l-3 2.6v-2.6h-2V3.5Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg>';
+  var CHEVRON = '<svg class="replies-toggle-chevron" width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="m3 4.5 3 3 3-3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+  function replyItemHTML(r) {
+    return '<div class="reply-item">' +
+        '<div class="avatar ' + r.av + '">' + esc(r.ini) + '</div>' +
+        '<div class="reply-item-main">' +
+          '<div class="reply-item-head"><span class="name">' + esc(r.name) + '</span><time class="time">' + esc(r.time) + '</time></div>' +
+          '<p class="reply-item-text">' + esc(r.text) + '</p>' +
+        '</div>' +
+      '</div>';
+  }
+
+  function repliesBlockHTML(replies) {
+    replies = replies || [];
+    if (!replies.length) return '';
+    return '<div class="post-replies">' +
+        '<button type="button" class="replies-toggle" aria-expanded="false">' +
+          CHEVRON + '<span class="replies-toggle-label">' + replies.length + '件の返信を表示</span>' +
+        '</button>' +
+        '<div class="replies-list" hidden>' + replies.map(replyItemHTML).join('') + '</div>' +
+      '</div>';
+  }
+
   function postHTML(p, c) {
     return '<article class="post">' +
       '<div class="post-head">' +
@@ -218,6 +259,7 @@
         '<button class="engage-btn like" aria-label="いいね">' + HEART + '\n' + p.likes + '\n</button>' +
         '<button class="engage-btn" aria-label="コメント">' + BUBBLE + '\n' + p.comments + '\n</button>' +
       '</div>' +
+      repliesBlockHTML(p.replies) +
     '</article>';
   }
   function attachLikes(root) {
@@ -229,6 +271,41 @@
         countEl.textContent = '\n' + (liked ? current + 1 : current - 1) + '\n';
       });
     });
+  }
+
+  // 返信モーダルから投稿した新しい返信を、その投稿のカード内にその場で追加する
+  function appendReply(postEl, reply) {
+    if (!postEl) return;
+    var block = postEl.querySelector('.post-replies');
+    if (!block) {
+      postEl.insertAdjacentHTML('beforeend', repliesBlockHTML([reply]));
+      // 開閉は post-replies.js の委譲ハンドラが担当するため、ここでは初期状態(開いた状態)だけ設定する
+      var newToggle = postEl.querySelector('.replies-toggle');
+      newToggle.setAttribute('aria-expanded', 'true');
+      newToggle.classList.add('open');
+      newToggle.querySelector('.replies-toggle-label').textContent = '返信を隠す';
+      postEl.querySelector('.replies-list').hidden = false;
+      var commentBtn0 = postEl.querySelector('.engage-btn:not(.like)');
+      if (commentBtn0) {
+        var countEl0 = commentBtn0.childNodes[commentBtn0.childNodes.length - 1];
+        countEl0.textContent = '\n1\n';
+      }
+      return;
+    }
+    var list = block.querySelector('.replies-list');
+    list.insertAdjacentHTML('beforeend', replyItemHTML(reply));
+    var count = list.querySelectorAll('.reply-item').length;
+    list.hidden = false;
+    var btn = block.querySelector('.replies-toggle');
+    btn.setAttribute('aria-expanded', 'true');
+    btn.classList.add('open');
+    btn.querySelector('.replies-toggle-label').textContent = '返信を隠す';
+    // コメント件数ボタンの表示も合わせて更新する
+    var commentBtn = postEl.querySelector('.engage-btn:not(.like)');
+    if (commentBtn) {
+      var countEl = commentBtn.childNodes[commentBtn.childNodes.length - 1];
+      countEl.textContent = '\n' + count + '\n';
+    }
   }
 
   // ---------- コミュニティ情報カード(タイルにカーソルを合わせるとその場に浮かぶ) ----------
@@ -256,7 +333,7 @@
       '.kc-link:hover{opacity:.8}' +
       '[data-community-id]{cursor:pointer}' +
       '.post-meta .community{cursor:pointer}' +
-      '.post-head .avatar,.result-user .avatar,.notif-item .avatar,.comment-item .avatar,.video-channel-row .avatar,.work-author-row .avatar,.reply-original .avatar,.host-row .avatar{cursor:pointer}';
+      '.post-head .avatar,.result-user .avatar,.notif-item .avatar,.comment-item .avatar,.video-channel-row .avatar,.work-author-row .avatar,.reply-original .avatar,.host-row .avatar,.reply-item .avatar{cursor:pointer}';
     document.head.appendChild(st);
   }
 
@@ -480,7 +557,7 @@
     join: join, leave: leave, toggleFav: toggleFav, create: create,
     memberCount: memberCount, memberText: memberText, dateText: dateText, toMs: toMs,
     esc: esc, linkify: linkify, iconHTML: iconHTML, glyphSVG: glyphSVG,
-    postHTML: postHTML, attachLikes: attachLikes,
+    postHTML: postHTML, attachLikes: attachLikes, appendReply: appendReply,
     muteWords: muteWords, addMuteWord: addMuteWord, removeMuteWordAt: removeMuteWordAt,
     updateMuteWordAt: updateMuteWordAt, onMuteWordsChange: onMuteWordsChange,
     showToast: showToast

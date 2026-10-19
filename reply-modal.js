@@ -134,6 +134,10 @@ function initReplyModal() {
   submitBtn.addEventListener('click', () => {
     if (submitBtn.disabled) return;
     incrementCommentCount(activeBtn);
+    const postEl = activeBtn.closest('.post');
+    if (postEl && window.Kakko) {
+      Kakko.appendReply(postEl, { av: 'a1', ini: 'あ', name: 'あなた', time: 'たった今', text: input.value.trim() });
+    }
     replyToast('返信を投稿しました(デモ)');
     closeReplyModal();
   });

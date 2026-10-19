@@ -3132,3 +3132,20 @@
 .series-desc-empty { color: var(--muted); font-style: italic; }
 
 .mywork-row .community-card-body { display: flex; flex-direction: column; gap: 2px; align-items: flex-start; }
+
+
+/* ---- 返信リスト(投稿カード内の折りたたみ返信) ---- */
+.post-replies{margin-top:10px}
+.replies-toggle{appearance:none;background:none;border:none;display:inline-flex;align-items:center;gap:6px;padding:2px 0;font-family:"Manrope",sans-serif;font-size:12.5px;font-weight:700;color:var(--muted,#b6a289);cursor:pointer;transition:color .15s ease}
+.replies-toggle:hover,.replies-toggle.open{color:var(--accent,#e07b2e)}
+.replies-toggle-chevron{transition:transform .18s ease;flex:none}
+.replies-toggle.open .replies-toggle-chevron{transform:rotate(180deg)}
+.replies-list{display:flex;flex-direction:column;gap:12px;margin-top:10px;padding-left:14px;border-left:2px solid var(--ink-line,rgba(243,230,210,.14))}
+.reply-item{display:flex;gap:9px}
+.reply-item .avatar{width:26px;height:26px;font-size:11px;flex:none}
+.reply-item-main{flex:1;min-width:0}
+.reply-item-head{display:flex;align-items:baseline;gap:7px}
+.reply-item-head .name{font-family:"Fraunces",serif;font-weight:500;font-size:13px;color:var(--paper-text,#f4ead9)}
+.reply-item-head .time{font-size:11px;color:var(--muted,#b6a289)}
+.reply-item-text{margin:2px 0 0;font-size:13px;line-height:1.6;color:var(--paper-text,#f4ead9)}
+.replies-list[hidden]{display:none}

@@ -114,6 +114,7 @@
   ]).then(function () {
     initComposer();
     initPostActions();
+    initPostReplies();
     initMutePanel();
     initReplyModal();
     const firstTab = document.querySelector('.tab');

@@ -32,11 +32,14 @@
 - `works-view.css` : works-view.html 固有のスタイル
 - `works.css` : works.html 固有のスタイル
 
+- `auth.css` : auth.html / login.html / register.html 共用のページ固有スタイル
+
 ## JavaScript
 - `loader.js` : KakkoLoader (コンポーネントfetch読み込み・ナビ強調)
 - `community-common.js` : デモデータ・状態管理・アイコン・ホバーカード・ミュート共有ロジック
 - `composer.js` : 投稿コンポーザー(添付/引用/作品ピッカー/投稿)
 - `post-actions.js` : いいね等の投稿操作
+- `post-replies.js` : 投稿内の返信の表示/非表示トグル(委譲)
 - `mute-panel.js` : ミュートワードパネル
 - `reply-modal.js` : 返信モーダル
 - `index.js` : index.html 固有の処理
@@ -60,6 +63,8 @@
 - `series-modal.js` : SeriesModal.open() シリーズ作成/更新
 - `series-works-modal.js` : SeriesWorksModal.open() シリーズ内作品管理
 
+- `auth-form.js` : ログイン/新規登録フォーム処理(見た目のみのデモ認証)
+
 ## Pages
 - `community-create.html`
 - `community-detail.html`
@@ -78,3 +83,6 @@
 - `works-view.html`
 - `works.html`
 - `components-bundle.js` : component-*.html の自動生成まとめ(file://直開き用フォールバック。`build-components.py` で再生成)
+- `auth.html` : ログイン/新規登録の選択画面
+- `login.html` : ログイン画面
+- `register.html` : 新規登録画面
