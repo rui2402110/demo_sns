@@ -17,3 +17,68 @@
 
 
   .edit-profile-btn:hover { border-color: var(--muted); }
+
+  /* ---------- プロフィール編集(デモ): 表示要素を入力欄に差し替え ---------- */
+
+  .profile-avatar-wrap { position: relative; }
+
+  .profile-avatar.has-image { background-size: cover; background-position: center; color: transparent; }
+
+  .profile-avatar-edit {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;
+    background: rgba(27, 20, 14, 0.55);
+    color: #f4ead9;
+    cursor: pointer;
+  }
+
+  .profile-avatar-edit:hover { background: rgba(27, 20, 14, 0.7); }
+
+  .profile-edit-input {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: inherit;
+    color: var(--paper-text);
+    background: rgba(243, 230, 210, 0.06);
+    border: 1px solid var(--ink-line);
+    border-radius: 10px;
+    padding: 8px 12px;
+    outline: none;
+    transition: border-color 0.2s ease;
+  }
+
+  .profile-edit-input:focus { border-color: var(--accent); }
+
+  .profile-edit-name { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 500; margin-bottom: 6px; }
+
+  .profile-edit-bio { font-size: 14px; line-height: 1.7; resize: vertical; margin-top: 12px; }
+
+  .profile-edit-link { font-size: 13px; }
+
+  .is-editing .profile-meta-item { flex: 1; }
+
+  .profile-edit-actions { display: flex; gap: 8px; }
+
+  .profile-edit-actions button {
+    font-family: 'Manrope', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    border: 1px solid var(--ink-line);
+    background: transparent;
+    color: var(--paper-text);
+  }
+
+  .profile-edit-actions .profile-edit-save { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+  .profile-edit-actions .profile-edit-cancel:hover { border-color: var(--muted); }
+
+  .profile-name[hidden], .profile-bio[hidden], .profile-link[hidden], .edit-profile-btn[hidden] { display: none; }

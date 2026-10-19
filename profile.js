@@ -112,7 +112,6 @@ function initProfile() {
     if (e.target === followModalOverlay) closeFollowModal();
   });
 
-  // ---- edit profile button (demo only) ----
   let toastTimer;
   function showToast(message) {
     const toast = document.getElementById('toast');
@@ -122,9 +121,86 @@ function initProfile() {
     toastTimer = setTimeout(() => toast.classList.remove('show'), 1800);
   }
 
-  document.querySelector('.edit-profile-btn').addEventListener('click', () => {
-    showToast('この画面は準備中です');
-  });
+  // ---- プロフィール編集(デモ): 画面遷移せず、表示要素をその場で入力欄に差し替える。値は保存しない ----
+  const header = document.querySelector('.profile-header');
+  const editBtn = document.querySelector('.edit-profile-btn');
+  const avatarWrap = document.querySelector('.profile-avatar-wrap');
+  const avatarEl = document.querySelector('.profile-avatar');
+  const nameEl = document.querySelector('.profile-name');
+  const bioEl = document.querySelector('.profile-bio');
+  const linkEl = document.querySelector('.profile-link');
+  let editNodes = [];
+  let previewUrl = null;
+
+  function addAfter(ref, node) { ref.insertAdjacentElement('afterend', node); editNodes.push(node); return node; }
+  function el(tag, cls, attrs) {
+    const n = document.createElement(tag);
+    if (cls) n.className = cls;
+    Object.keys(attrs || {}).forEach(k => n.setAttribute(k, attrs[k]));
+    return n;
+  }
+
+  function enterEdit() {
+    if (header.classList.contains('is-editing')) return;
+    header.classList.add('is-editing');
+
+    // アイコン: クリックで画像を選び、その場でプレビュー(保存はしない)
+    const file = el('input', 'profile-edit-file', { type: 'file', accept: 'image/*', hidden: '' });
+    const camBtn = el('button', 'profile-avatar-edit', { type: 'button', 'aria-label': 'アイコン画像を変更' });
+    camBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 6.5h3l1.2-2h5.6l1.2 2h3v9H3v-9Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><circle cx="10" cy="11" r="2.8" stroke="currentColor" stroke-width="1.4"/></svg>';
+    avatarWrap.appendChild(camBtn); editNodes.push(camBtn);
+    avatarWrap.appendChild(file); editNodes.push(file);
+    camBtn.addEventListener('click', () => file.click());
+    file.addEventListener('change', () => {
+      const f = file.files && file.files[0];
+      if (!f) return;
+      if (previewUrl) URL.revokeObjectURL(previewUrl);
+      previewUrl = URL.createObjectURL(f);
+      avatarEl.classList.add('has-image');
+      avatarEl.style.backgroundImage = 'url("' + previewUrl + '")';
+      avatarEl.dataset.label = avatarEl.textContent;
+      avatarEl.textContent = '';
+    });
+
+    // 名前
+    nameEl.hidden = true;
+    const nameIn = addAfter(nameEl, el('input', 'profile-edit-input profile-edit-name', { type: 'text', maxlength: '30', 'aria-label': '名前' }));
+    nameIn.value = nameEl.textContent.trim();
+
+    // プロフィール(自己紹介)
+    bioEl.hidden = true;
+    const bioIn = addAfter(bioEl, el('textarea', 'profile-edit-input profile-edit-bio', { rows: '4', maxlength: '160', 'aria-label': 'プロフィール' }));
+    bioIn.value = bioEl.textContent.trim();
+
+    // リンク
+    linkEl.hidden = true;
+    const linkIn = addAfter(linkEl, el('input', 'profile-edit-input profile-edit-link', { type: 'text', 'aria-label': 'リンク', spellcheck: 'false' }));
+    linkIn.value = linkEl.textContent.trim();
+
+    // 保存 / キャンセル
+    editBtn.hidden = true;
+    const actions = el('div', 'profile-edit-actions');
+    actions.innerHTML = '<button type="button" class="profile-edit-cancel">キャンセル</button><button type="button" class="profile-edit-save">保存</button>';
+    editBtn.insertAdjacentElement('afterend', actions); editNodes.push(actions);
+    actions.querySelector('.profile-edit-cancel').addEventListener('click', () => exitEdit(false));
+    actions.querySelector('.profile-edit-save').addEventListener('click', () => exitEdit(true));
+    nameIn.focus();
+  }
+
+  function exitEdit(saved) {
+    editNodes.forEach(n => n.remove());
+    editNodes = [];
+    nameEl.hidden = false; bioEl.hidden = false; linkEl.hidden = false; editBtn.hidden = false;
+    // デモのため、プレビューした画像は元のアイコンに戻す
+    if (previewUrl) { URL.revokeObjectURL(previewUrl); previewUrl = null; }
+    avatarEl.classList.remove('has-image');
+    avatarEl.style.backgroundImage = '';
+    if (avatarEl.dataset.label) { avatarEl.textContent = avatarEl.dataset.label; delete avatarEl.dataset.label; }
+    header.classList.remove('is-editing');
+    if (saved) showToast('プロフィールを保存しました(デモ)');
+  }
+
+  editBtn.addEventListener('click', enterEdit);
 
 }
 window.initProfile = initProfile;
