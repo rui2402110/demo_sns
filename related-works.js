@@ -2,17 +2,17 @@
  * related-works.js — 作品投稿の「関連作品」欄。
  * 作品引用と同じパレット(component-work-picker.frag)で作品を選び、
  * 引用プレビューと同じカードを積み上げる(何件でも追加可)。
- * component-work-picker.frag を読み込んだ後に initRelatedWorks() を呼ぶ。
+ * component-work-picker.frag を読み込んだ後に initRelatedWorks(初期値のID配列) を呼ぶ(省略可)。
  * window.RelatedWorks.get() で選択中の作品一覧を取得できる。
  */
-function initRelatedWorks() {
+function initRelatedWorks(initialIds) {
   const { WORKS, WORK_ICONS } = window.KakkoWorks;
   const listEl = document.getElementById('related-list');
   const addBtn = document.getElementById('related-add');
   const overlay = document.getElementById('palette-overlay');
   const paletteList = document.getElementById('palette-list');
   if (!listEl || !addBtn || !overlay) return;
-  let selected = [];
+  let selected = (initialIds || []).map(id => WORKS.find(w => w.id === id)).filter(Boolean);
 
   function render() {
     listEl.innerHTML = selected.map(w => `
@@ -61,6 +61,8 @@ function initRelatedWorks() {
   addBtn.addEventListener('click', openPalette);
   document.getElementById('palette-close').addEventListener('click', closePalette);
   overlay.addEventListener('click', e => { if (e.target === overlay) closePalette(); });
+
+  render();
 
   window.RelatedWorks = { get: function () { return selected.slice(); } };
 }

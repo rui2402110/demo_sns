@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>kakko. ｜ 作品編集</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="common.css">
+<link rel="stylesheet" href="works-edit.css">
+</head>
+<body>
+
+<div class="layout">
+  <div id="slot-sidenav"></div>
+
+
+  <div class="app">
+
+    <header class="topbar hub-topbar">
+      <p class="wordmark">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M14 8.6A6 6 0 1 1 7.4 2 4.8 4.8 0 0 0 14 8.6Z" stroke="#e07b2e" stroke-width="1.3" stroke-linejoin="round"/>
+        </svg>
+        kakko.
+      </p>
+      <a class="breadcrumb" href="works-list.html">← マイ作品</a>
+      <p class="page-title">作品編集</p>
+      <p class="page-subtitle">投稿済みの作品の内容を編集できます</p>
+    </header>
+
+    <div class="works-quicknav">
+      <a class="quicknav-btn quicknav-btn-primary" href="works-upload.html">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        作品投稿
+      </a>
+      <a class="quicknav-btn" href="works-list.html">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1.5" y="1.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="1.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1.2"/><rect x="1.5" y="8" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="8" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1.2"/></svg>
+        マイ作品
+      </a>
+    </div>
+
+    <main class="feed" id="create-view">
+
+      <div class="form-field">
+        <label class="form-label" for="f-title">タイトル</label>
+        <input type="text" id="f-title" class="form-input" autocomplete="off">
+      </div>
+
+      <div class="form-field">
+        <span class="form-label">作品の種類</span>
+        <p class="form-fixed-note">作品の種類は投稿後に変更できません</p>
+        <div class="format-options">
+          <label class="format-option">
+            <input type="radio" name="wtype" value="text" class="format-radio" checked disabled>
+            <span class="format-option-body">
+              <span class="format-option-title">小説・ブログ</span>
+              <span class="format-option-desc">HTMLベースのエディタで文章を書けます</span>
+            </span>
+          </label>
+          <label class="format-option">
+            <input type="radio" name="wtype" value="image" class="format-radio" disabled>
+            <span class="format-option-body">
+              <span class="format-option-title">漫画・イラスト</span>
+              <span class="format-option-desc">画像ファイルをアップロードします</span>
+            </span>
+          </label>
+          <label class="format-option">
+            <input type="radio" name="wtype" value="video" class="format-radio" disabled>
+            <span class="format-option-body">
+              <span class="format-option-title">動画</span>
+              <span class="format-option-desc">動画ファイルをアップロードします</span>
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-field" id="editor-field">
+        <label class="form-label">本文</label>
+        <div class="editor-toolbar">
+          <button type="button" class="editor-btn" data-cmd="bold" title="太字"><b>B</b></button>
+          <button type="button" class="editor-btn" data-cmd="italic" title="斜体"><i>I</i></button>
+          <button type="button" class="editor-btn" data-cmd="formatBlock" data-value="H3" title="見出し">見出し</button>
+          <button type="button" class="editor-btn" data-cmd="createLink" title="リンク">リンク</button>
+        </div>
+        <div class="editor-body" id="editor-body" contenteditable="true" data-placeholder="本文を入力してください…（ブログのように書いても構いません）"></div>
+      </div>
+
+      <div class="form-field">
+        <label class="form-label" for="f-desc">概要</label>
+        <textarea id="f-desc" class="form-input form-textarea" rows="3" placeholder="作品の概要を書きましょう"></textarea>
+      </div>
+
+      <div class="form-field">
+        <label class="form-label">関連作品</label>
+        <div class="related-list" id="related-list"></div>
+        <button type="button" class="related-add-btn" id="related-add">
+          <svg width="14" height="14" viewBox="0 0 20 20" fill="none"><path d="M5 6.5h10M5 10h10M5 13.5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          作品を引用して追加
+        </button>
+      </div>
+
+      <button type="button" class="create-submit" id="edit-submit">変更を保存する</button>
+      <a class="edit-cancel" href="works-list.html">キャンセル</a>
+    </main>
+
+    <main class="feed" id="success-view" hidden>
+      <section class="success-card">
+        <span class="success-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 11.5 9 16.5 18 6" stroke="#2b2016" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <p class="success-title" id="success-title">作品を更新しました</p>
+        <p class="success-desc">変更内容を保存しました(デモ)。</p>
+        <a class="result-work-link" href="works-list.html">マイ作品を見る</a>
+      </section>
+    </main>
+
+  </div>
+
+</div>
+
+<div id="slot-toast"></div>
+<div id="slot-work-picker"></div>
+
+
+<script src="components-bundle.js"></script>
+<script src="loader.js"></script>
+<script src="community-common.js"></script>
+<script src="work-catalog.js"></script>
+<script src="related-works.js"></script>
+<script src="works-edit.js"></script>
+<script>
+  initWorksEdit();
+  KakkoLoader.load('component-sidenav.frag', '#slot-sidenav').then(function () { KakkoLoader.markActiveNav('works'); });
+  KakkoLoader.load('component-toast.frag', '#slot-toast');
+  KakkoLoader.load('component-work-picker.frag', '#slot-work-picker').then(function () { initRelatedWorks(['silent', 'kafu']); });
+</script>
+</body>
+</html>

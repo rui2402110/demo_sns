@@ -14,6 +14,7 @@ const WORK_ICONS = {
 const WORKS = [
   { id: 'hai', title: '灰と星屑', type: '小説', icon: 'novel', author: 'つむぎ', views: '8.4万', style: 'background: linear-gradient(135deg, var(--avatar-1), #7a3a2c 65%, var(--ink-soft));' },
   { id: 'silent', title: 'サイレント・チャプター', type: '小説', icon: 'novel', author: '海野', views: '5.1万', style: 'background: linear-gradient(135deg, var(--avatar-3), #5c4a1f 65%, var(--ink-soft));' },
+  { id: 'kafu', title: '花布の記憶', type: '小説', icon: 'novel', author: 'しおり', views: '2.2万', style: 'background: linear-gradient(135deg, #6f8a5c, #384a2c 65%, var(--ink-soft));' },
   { id: 'yoru', title: '夜想曲のリベルタ', type: '小説', icon: 'novel', author: 'はると', views: '3.9万', style: 'background: linear-gradient(135deg, var(--avatar-2), #2e4468 65%, var(--ink-soft));' },
   { id: 'hai-manga', title: '灰と星屑 コミカライズ版', type: '画像', icon: 'manga', author: 'みずき', views: '1.8万', style: 'background: linear-gradient(135deg, var(--avatar-1), #7a3a2c 65%, var(--ink-soft));', cover: CAT_IMG },
   { id: 'hai-pv', title: '灰と星屑 PV映像', type: '動画', icon: 'video', author: 'つむぎ', views: '2.6万', style: 'background: linear-gradient(135deg, #6f8a5c, #384a2c 65%, var(--ink-soft));', cover: CAT_IMG },

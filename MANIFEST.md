@@ -29,6 +29,7 @@
 - `user-profile.css` : user-profile.html 固有のスタイル
 - `works-list.css` : works-list.html 固有のスタイル
 - `works-upload.css` : works-upload.html 固有のスタイル
+- `works-edit.css` : works-edit.html 固有のスタイル
 - `works-view.css` : works-view.html 固有のスタイル
 - `works.css` : works.html 固有のスタイル
 
@@ -59,6 +60,7 @@
 - `works.js` : works.html 固有の処理
 - `works-list.js` : works-list.html 固有の処理
 - `works-upload.js` : works-upload.html 固有の処理
+- `works-edit.js` : works-edit.html 固有の処理
 - `works-view.js` : works-view.html 固有の処理
 
 - `series-store.js` : シリーズ・自分の作品のデモデータ+保存(localStorage `kakko.series.v1`)
@@ -82,6 +84,7 @@
 - `user-profile.html`
 - `works-list.html`
 - `works-upload.html`
+- `works-edit.html`
 - `works-view.html`
 - `works.html`
 - `components-bundle.js` : component-*.html の自動生成まとめ(file://直開き用フォールバック。`build-components.py` で再生成)

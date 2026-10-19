@@ -3149,3 +3149,6 @@
 .reply-item-head .time{font-size:11px;color:var(--muted,#b6a289)}
 .reply-item-text{margin:2px 0 0;font-size:13px;line-height:1.6;color:var(--paper-text,#f4ead9)}
 .replies-list[hidden]{display:none}
+
+/* a要素としても使える ghost-btn */
+a.ghost-btn { display: inline-block; text-decoration: none; }

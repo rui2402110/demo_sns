@@ -29,17 +29,11 @@ function initWorksList() {
           '<span class="community-card-meta">閲覧 ' + S.num(w.views) + ' ・ いいね ' + S.num(w.likes) + ' ・ コメント ' + w.comments + '</span>' +
         '</span>' +
         '<span class="mywork-actions">' +
-          '<button class="ghost-btn" type="button" data-edit="' + S.esc(w.title) + '">編集</button>' +
+          '<a class="ghost-btn" href="works-edit.html?id=' + encodeURIComponent(w.id) + '">編集</a>' +
           '<a class="result-work-link" href="works-view.html?id=' + encodeURIComponent(w.id) + '">見る</a>' +
         '</span></article>';
     }).join('') || '<div class="empty-state"><p>シリーズに入っていない作品はありません。</p></div>';
   }
-
-  // ---- edit buttons (not implemented in this demo) ----
-  document.getElementById('works-list').addEventListener('click', function (e) {
-    var btn = e.target.closest('[data-edit]');
-    if (btn) Kakko.showToast('「' + btn.dataset.edit + '」の編集機能は準備中です');
-  });
 
   // ---- series create (共用ポップアップ) ----
   document.getElementById('open-series-modal').addEventListener('click', function () {

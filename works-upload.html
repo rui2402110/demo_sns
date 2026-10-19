@@ -144,7 +144,7 @@
   initWorksUpload();
   KakkoLoader.load('component-sidenav.frag', '#slot-sidenav').then(function () { KakkoLoader.markActiveNav('works'); });
   KakkoLoader.load('component-toast.frag', '#slot-toast');
-  KakkoLoader.load('component-work-picker.frag', '#slot-work-picker').then(initRelatedWorks);
+  KakkoLoader.load('component-work-picker.frag', '#slot-work-picker').then(function () { initRelatedWorks(); });
 </script>
 </body>
 </html>
