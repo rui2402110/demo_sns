@@ -58,9 +58,9 @@
 
   .quote-btn-gallery {
     position: absolute;
-    top: 0;
+    top: 50%;
     right: 14px;
-    transform: none;
+    transform: translateY(-50%);
     background: rgba(27, 20, 14, 0.55);
     border-color: rgba(244, 234, 217, 0.3);
     color: #f4ead9;
@@ -73,14 +73,6 @@
 
 
 
-  .quote-btn-sticky {
-    position: fixed;
-    top: 24px;
-    right: 24px;
-    z-index: 30;
-    background: var(--ink-soft);
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
-  }
 
 
 
@@ -95,8 +87,20 @@
 
   .gallery-images {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 10px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 6px;
+  }
+
+
+
+  .gallery-page {
+    position: relative;
+    flex: 0 0 100%;
+    scroll-snap-align: start;
   }
 
 
@@ -406,3 +410,4 @@
 
 
   .comment-item-text { font-size: 13.5px; line-height: 1.65; color: var(--paper-text); margin: 0; }
+  .quicknav-btn[hidden] { display: none; }

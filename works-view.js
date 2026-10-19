@@ -311,25 +311,16 @@ function initWorksView() {
     if (isImage && w.gallery && w.gallery.length) {
       document.getElementById('work-gallery').hidden = false;
       const galleryEl = document.getElementById('gallery-images');
-      galleryEl.innerHTML =
-        w.gallery.map((src, i) => '<img src="' + src + '" alt="' + w.title + ' ' + (i + 1) + '枚目">').join('');
-
-      // 引用ボタンを1枚目の画像の中央右に合わせる
-      const quoteGalleryBtn = document.getElementById('quote-btn-gallery');
-      const firstImg = galleryEl.querySelector('img');
-      const placeQuoteBtn = () => {
-        if (!firstImg) return;
-        quoteGalleryBtn.style.top = (firstImg.offsetTop + firstImg.offsetHeight / 2) + 'px';
-        quoteGalleryBtn.style.transform = 'translateY(-50%)';
-      };
-      if (firstImg.complete) placeQuoteBtn();
-      else firstImg.addEventListener('load', placeQuoteBtn);
-      window.addEventListener('resize', placeQuoteBtn);
+      // 横並び: 各ページ(画像)ごとに引用ボタンを付ける
+      const quoteSvg = '<svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 5.5h8M4 8h8M4 10.5h5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>';
+      galleryEl.innerHTML = w.gallery.map((src, i) =>
+        '<div class="gallery-page">' +
+          '<img src="' + src + '" alt="' + w.title + ' ' + (i + 1) + '枚目">' +
+          '<button class="quote-btn quote-btn-gallery" type="button" aria-label="この作品を引用">' + quoteSvg + '引用</button>' +
+        '</div>').join('');
+      galleryEl.querySelectorAll('.quote-btn-gallery').forEach(btn => btn.addEventListener('click', goQuote));
     }
 
-    if (isText) {
-      document.getElementById('quote-btn-sticky').hidden = false;
-    }
   }
 
   document.getElementById('w-related').innerHTML = renderRelated(w.related);
@@ -347,10 +338,12 @@ function initWorksView() {
     window.location.href = 'index.html?' + q.toString();
   }
 
-  ['quote-btn-video', 'quote-btn-gallery', 'quote-btn-sticky'].forEach(id => {
-    const btn = document.getElementById(id);
-    if (btn) btn.addEventListener('click', goQuote);
-  });
+  // 文字・動画作品: 作品投稿/マイ作品ボタンの隣の引用ボタン(画像作品はページごとのボタンを使う)
+  const quoteQuickBtn = document.getElementById('quote-btn-quicknav');
+  if (quoteQuickBtn && !isImage) {
+    quoteQuickBtn.hidden = false;
+    quoteQuickBtn.addEventListener('click', goQuote);
+  }
 
   // ---- comment composer ----
   const commentInput = document.getElementById('comment-input');

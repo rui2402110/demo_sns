@@ -37,6 +37,10 @@
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="1.5" y="1.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="1.5" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1.2"/><rect x="1.5" y="8" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1.2"/><rect x="8" y="8" width="4.5" height="4.5" rx="1" stroke="currentColor" stroke-width="1.2"/></svg>
         マイ作品
       </a>
+      <button class="quicknav-btn" id="quote-btn-quicknav" type="button" hidden>
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 5.5h8M4 8h8M4 10.5h5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
+        引用
+      </button>
     </div>
 
     <main class="feed" id="work-view">
@@ -64,10 +68,6 @@
         </div>
         <div class="video-description">
           <p id="video-desc-text"></p>
-          <button class="quote-btn" id="quote-btn-video" type="button">
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 5.5h8M4 8h8M4 10.5h5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-            この作品を引用
-          </button>
         </div>
       </section>
 
@@ -91,20 +91,10 @@
       <!-- ===== 画像ギャラリー（画像作品） ===== -->
       <div class="work-gallery" id="work-gallery" hidden>
         <div class="gallery-images" id="gallery-images"></div>
-        <button class="quote-btn quote-btn-gallery" id="quote-btn-gallery" type="button" aria-label="この作品を引用">
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 5.5h8M4 8h8M4 10.5h5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-          引用
-        </button>
       </div>
 
       <!-- ===== 本文（小説・ブログ） ===== -->
       <div class="work-body" id="w-body"></div>
-
-      <!-- ===== 追従する引用ボタン（文字作品のみ） ===== -->
-      <button class="quote-btn quote-btn-sticky" id="quote-btn-sticky" type="button" hidden>
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 5.5h8M4 8h8M4 10.5h5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>
-        引用
-      </button>
 
       <h2 class="result-heading section-heading" id="w-related-heading">関連作品</h2>
       <section class="community-list" id="w-related"></section>
