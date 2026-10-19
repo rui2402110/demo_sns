@@ -176,49 +176,7 @@ function initWorksUpload() {
     if (e.dataTransfer && e.dataTransfer.files.length) addFiles(e.dataTransfer.files);
   });
 
-  // ---- related work tag picker ----
-  const allWorks = ['灰と星屑', 'サイレント・チャプター', '夜想曲のリベルタ', '花布の記憶', 'ゆきの読書ノート', 'せんなの映画メモ'];
-  const relatedChips = document.getElementById('related-chips');
-  const relatedInput = document.getElementById('related-input');
-  const relatedSuggestions = document.getElementById('related-suggestions');
-  let relatedTags = [];
-
-  function renderChips() {
-    relatedChips.innerHTML = relatedTags.map((t, i) => `
-      <span class="tag-chip">${t}<button type="button" data-index="${i}" aria-label="削除">×</button></span>
-    `).join('');
-    relatedChips.querySelectorAll('button').forEach(btn => {
-      btn.addEventListener('click', () => {
-        relatedTags.splice(parseInt(btn.dataset.index, 10), 1);
-        renderChips();
-      });
-    });
-  }
-
-  function addTag(name) {
-    const trimmed = name.trim();
-    if (!trimmed || relatedTags.includes(trimmed)) return;
-    relatedTags.push(trimmed);
-    renderChips();
-    relatedInput.value = '';
-    relatedSuggestions.hidden = true;
-  }
-
-  relatedInput.addEventListener('input', () => {
-    const value = relatedInput.value.trim();
-    if (!value) { relatedSuggestions.hidden = true; return; }
-    const matches = allWorks.filter(w => w.includes(value) && !relatedTags.includes(w));
-    if (matches.length === 0) { relatedSuggestions.hidden = true; return; }
-    relatedSuggestions.innerHTML = matches.map(w => `<button type="button" class="tag-suggestion-item">${w}</button>`).join('');
-    relatedSuggestions.hidden = false;
-    relatedSuggestions.querySelectorAll('.tag-suggestion-item').forEach(item => {
-      item.addEventListener('click', () => addTag(item.textContent));
-    });
-  });
-
-  relatedInput.addEventListener('keydown', e => {
-    if (e.key === 'Enter') { e.preventDefault(); addTag(relatedInput.value); }
-  });
+  // 関連作品は related-works.js(作品引用と同じパレット)が担当
 
   // ---- submit validation ----
   function refreshSubmitState() {

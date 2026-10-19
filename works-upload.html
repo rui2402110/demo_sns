@@ -105,9 +105,11 @@
 
       <div class="form-field">
         <label class="form-label">関連作品</label>
-        <div class="tag-chips" id="related-chips"></div>
-        <input type="text" id="related-input" class="form-input" placeholder="関連する作品名を入力…" autocomplete="off">
-        <div class="tag-suggestions" id="related-suggestions" hidden></div>
+        <div class="related-list" id="related-list"></div>
+        <button type="button" class="related-add-btn" id="related-add">
+          <svg width="14" height="14" viewBox="0 0 20 20" fill="none"><path d="M5 6.5h10M5 10h10M5 13.5h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          作品を引用して追加
+        </button>
       </div>
 
       <button type="button" class="create-submit" id="upload-submit" disabled>作品を投稿する</button>
@@ -129,16 +131,20 @@
 </div>
 
 <div id="slot-toast"></div>
+<div id="slot-work-picker"></div>
 
 
 <script src="components-bundle.js"></script>
 <script src="loader.js"></script>
 <script src="community-common.js"></script>
+<script src="work-catalog.js"></script>
+<script src="related-works.js"></script>
 <script src="works-upload.js"></script>
 <script>
   initWorksUpload();
   KakkoLoader.load('component-sidenav.frag', '#slot-sidenav').then(function () { KakkoLoader.markActiveNav('works'); });
   KakkoLoader.load('component-toast.frag', '#slot-toast');
+  KakkoLoader.load('component-work-picker.frag', '#slot-work-picker').then(initRelatedWorks);
 </script>
 </body>
 </html>

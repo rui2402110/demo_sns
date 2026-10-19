@@ -239,77 +239,31 @@
 
 
 
-  /* ---------- related-work tag picker ---------- */
+  /* ---------- related works (作品引用と同じUIで複数追加) ---------- */
 
-  .tag-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 8px;
-  }
+  .related-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 10px; }
 
+  .related-list:empty { display: none; }
 
+  .related-list .quote-preview { margin: 0; }
 
-  .tag-chips:empty { display: none; }
-
-
-
-  .tag-chip {
-    display: flex;
+  .related-add-btn {
+    display: inline-flex;
     align-items: center;
     gap: 7px;
-    background: var(--accent-soft);
-    color: var(--accent);
-    border-radius: 20px;
-    padding: 6px 8px 6px 14px;
-    font-size: 12.5px;
-    font-weight: 600;
-  }
-
-
-
-  .tag-chip button {
     appearance: none;
-    background: rgba(224, 123, 46, 0.25);
-    border: none;
-    color: var(--accent);
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 11px;
-    line-height: 1;
-  }
-
-
-
-  .tag-suggestions {
-    margin-top: 6px;
+    background: rgba(243, 230, 210, 0.06);
     border: 1px solid var(--ink-line);
-    border-radius: 10px;
-    overflow: hidden;
-  }
-
-
-
-  .tag-suggestion-item {
-    display: block;
-    width: 100%;
-    text-align: left;
-    appearance: none;
-    background: var(--ink-soft);
-    border: none;
     color: var(--paper-text);
     font-family: 'Manrope', sans-serif;
-    font-size: 13px;
-    padding: 10px 14px;
+    font-size: 12.5px;
+    font-weight: 700;
+    padding: 8px 14px;
+    border-radius: 20px;
     cursor: pointer;
-    border-bottom: 1px solid var(--ink-line);
+    transition: border-color 0.2s ease, color 0.2s ease;
   }
 
+  .related-add-btn:hover { border-color: var(--accent); color: var(--accent); }
 
-
-  .tag-suggestion-item:last-child { border-bottom: none; }
-
-
-  .tag-suggestion-item:hover { background: rgba(243, 230, 210, 0.06); }
+  .palette-empty { padding: 18px; text-align: center; font-size: 13px; color: var(--muted); }

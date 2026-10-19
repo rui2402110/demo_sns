@@ -40,6 +40,8 @@
 - `composer.js` : 投稿コンポーザー(添付/引用/作品ピッカー/投稿)
 - `post-actions.js` : いいね等の投稿操作
 - `post-replies.js` : 投稿内の返信の表示/非表示トグル(委譲)
+- `work-catalog.js` : 引用・関連作品で共通の作品カタログ
+- `related-works.js` : 作品投稿の関連作品(引用パレットで複数追加)
 - `mute-panel.js` : ミュートワードパネル
 - `reply-modal.js` : 返信モーダル
 - `index.js` : index.html 固有の処理
