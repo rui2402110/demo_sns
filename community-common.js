@@ -333,7 +333,8 @@
       '.kc-link:hover{opacity:.8}' +
       '[data-community-id]{cursor:pointer}' +
       '.post-meta .community{cursor:pointer}' +
-      '.post-head .avatar,.result-user .avatar,.notif-item .avatar,.comment-item .avatar,.video-channel-row .avatar,.work-author-row .avatar,.reply-original .avatar,.host-row .avatar,.reply-item .avatar{cursor:pointer}';
+      '.post-head .avatar,.result-user .avatar,.notif-item .avatar,.comment-item .avatar,.video-channel-row .avatar,.work-author-row .avatar,.reply-original .avatar,.host-row .avatar,.reply-item .avatar{cursor:pointer}' +
+      '.post-head .name,.result-user .name,.comment-item .name,.video-channel-row .video-author-name,.work-author-row .work-author-name,.reply-original .name,.host-row .host-name,.reply-item .name{cursor:pointer}';
     document.head.appendChild(st);
   }
 
@@ -500,7 +501,7 @@
   var SELF_NAMES = ['あなた'];
   var AVATAR_CONTAINER_SEL =
     '.post-head, .result-user, .notif-item, .comment-item, .video-channel-row, ' +
-    '.work-author-row, .reply-original, .host-row';
+    '.work-author-row, .reply-original, .host-row, .reply-item';
   var AVATAR_NAME_SEL = '.name, .host-name, .video-author-name, .work-author-name';
 
   function userProfileDataFor(avatarEl) {
@@ -527,12 +528,19 @@
     return 'user-profile.html?' + p;
   }
 
+  // アイコンだけでなく、同じ行の名前(ユーザー名)を押してもプロフィールへ遷移する
   document.addEventListener('click', function (e) {
     if (!e.target || !e.target.closest) return;
     var avatarEl = e.target.closest('.avatar');
-    if (!avatarEl) return;
+    if (!avatarEl) {
+      var nameEl = e.target.closest(AVATAR_NAME_SEL);
+      var container = nameEl && nameEl.closest(AVATAR_CONTAINER_SEL);
+      avatarEl = container && container.querySelector('.avatar');
+      // 名前の要素が、その行のアイコンと同じ行にあるときだけ対象にする
+      if (!avatarEl || avatarEl.closest(AVATAR_CONTAINER_SEL) !== container) return;
+    }
     var data = userProfileDataFor(avatarEl);
-    // 自分自身(「あなた」)のアイコンは対象外。もともとのリンク/挙動に任せる
+    // 自分自身(「あなた」)は対象外。もともとのリンク/挙動に任せる
     if (!data || SELF_NAMES.indexOf(data.name) !== -1) return;
     e.preventDefault();
     e.stopPropagation();
